@@ -1,0 +1,884 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+   
+}
+
+.color {
+    color: #ff0066;
+}
+
+
+/*===== LOADING ====*/
+
+#loading {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background:rgb(255, 50, 50);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#spinner {
+    animation: rotates 0.56s infinite linear;
+    width:50px;
+    height:50px;
+    border:12px solid #fff;
+    border-bottom:12px solid rgb(255, 50, 50);
+    border-radius:50%;
+    margin:0;
+}
+@keyframes rotates {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+#box {
+    width:100vw;
+    height:100vh;
+    z-index:9;
+    position:fixed;
+    top:0;
+}
+#box div {
+    width:16.66vw;
+    height:100%;
+    display:inline-block;
+}
+.box1 {
+    background:rgb(255, 50, 50);
+}
+.box2 {
+    background:rgb(255, 50, 50);
+    margin-left:-5px;
+}
+
+/* Nav */
+
+header {
+    background: #ff0066;
+    height: 66px;
+    position: sticky;
+    top: 0;
+    padding-right: 50px;
+    width: 100%;
+    z-index: 9999;
+    
+}
+
+header * {
+    color: white;
+}
+
+header .logo {
+    float: left;
+    height: inherit;
+    margin-left: 2em;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+header .logo-img {
+    position: relative;
+    right: 70px;
+    bottom: 130px;
+}
+
+header .logo-text {
+    margin: 12px;
+    position: relative;
+    left: 50px;
+}
+
+header .logo-text b{
+    color: black;
+    font-weight: 550;
+}
+
+header ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header ul li {
+    padding-right: 10px;
+}
+
+header ul li:hover ul {
+    display: block;
+}
+
+header ul li ul {
+    position: absolute;
+    top: 66px;
+    right: 0px;
+    width: 180px;
+    display: none;
+    z-index: 88888;
+}
+
+header ul li ul li a {
+    padding: 10px;
+    background: #0E94A0;
+    color: white;
+    padding-left: 50px;
+}
+
+header ul li ul li a:hover {
+    background: #006669;
+}
+
+header ul li ul li a.logout {
+    color: red;
+}
+
+header ul li ul li {
+    width: 100%;
+}
+
+header ul li {
+    float: left;
+    position: relative; 
+}
+
+
+header ul li a {
+    display: block;
+    padding-left: 21px;
+    padding-right: 21px;
+    padding-top: 21px;
+    font-size: 1.2em;
+    text-decoration: none; 
+}
+
+header ul li a:after{
+    content: "";
+    position: absolute;
+    background-color: black;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.4s;
+}
+header ul li a:hover{
+    color: #ffffff;
+}
+
+header ul li a:hover:after{
+    width: 100%;
+}
+
+header .menu-toggle {
+    display: none;
+}
+
+.page-wrapper {
+    min-height: 100%;
+}
+
+.page-wrapper a:hover {
+    color:rgb(150, 144, 118);    
+}
+
+/* NEW  */
+
+.content {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% auto;
+    gap: 30px;
+    margin-top: 120px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    left: 100px;
+    top: 50px;
+}
+
+.content .content-left {
+    display: block;
+    width: 100%;
+}
+
+.content .content-left .text {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content .content-left .text h1{
+    font-size: 80px;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+    position: relative;
+    bottom: 70px;
+    left: 100px;
+    color: #ff0066;
+}
+
+.content .content-left .text p{
+    font-size: 23px;
+    line-height: 2pc;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+    position: relative;
+    bottom: 77px;
+    left: 100px;
+    color: #ff0066;
+}
+
+.content .content-left a{
+   position: relative;
+   display: inline-block;
+   padding: 10px 30px;
+   text-decoration: none;
+   text-transform: uppercase;
+   color: white;
+   background: #ff0066;
+   letter-spacing: 2px;
+   font-size: 16px;
+   transition: 0.5s;
+   bottom: 70px;
+   left: 100px;
+}
+
+.content .content-left a:hover{
+    color: black;
+}
+
+.content .content-left a span{
+    display: block;
+    position: absolute;
+    background: white;
+}
+
+.content .content-left a span:nth-child(1) {
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+}
+
+.content .content-left a:hover span:nth-child(1){
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+}
+
+.content .content-left a span:nth-child(2) {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+
+.content .content-left a:hover span:nth-child(2){
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.content .content-left a span:nth-child(3) {
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
+}
+
+.content .content-left a:hover span:nth-child(3){
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
+}
+
+.content .content-left a span:nth-child(4) {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
+}
+
+.content .content-left a:hover span:nth-child(4){
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
+}
+
+.animate a:hover{
+    color: black;
+}
+
+.animate a span{
+    display: block;
+    position: absolute;
+    background: white;
+}
+
+.animate a{
+    position: relative;
+    display: inline-block;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    background: #ff0066;
+    letter-spacing: 2px;
+    font-size: 16px;
+    transition: 0.5s;
+    bottom: 70px;
+    left: 100px;
+ }
+ 
+ .animate a:hover{
+     color: black;
+ }
+ 
+ .animate a span{
+     display: block;
+     position: absolute;
+     background: white;
+ }
+ 
+ .animate a span:nth-child(1) {
+     left: 0;
+     bottom: 0;
+     width: 3px;
+     height: 100%;
+     transform: scaleY(0);
+     transform-origin: top;
+     transition: transform 0.5s;
+ }
+ 
+ .animate a:hover span:nth-child(1){
+     transform: scaleY(1);
+     transform-origin: bottom;
+     transition: transform 0.5s;
+ }
+ 
+ .animate a span:nth-child(2) {
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     height: 3px;
+     transform: scaleX(0);
+     transform-origin: right;
+     transition: transform 0.5s;
+ }
+ 
+ .animate a:hover span:nth-child(2){
+     transform: scaleX(1);
+     transform-origin: left;
+     transition: transform 0.5s;
+ }
+ 
+ .animate a span:nth-child(3) {
+     right: 0;
+     bottom: 0;
+     width: 3px;
+     height: 100%;
+     transform: scaleY(0);
+     transform-origin: top;
+     transition: transform 0.5s;
+     transition-delay: 0.5s;
+ }
+ 
+ .animate a:hover span:nth-child(3){
+     transform: scaleY(1);
+     transform-origin: bottom;
+     transition: transform 0.5s;
+     transition-delay: 0.5s;
+ }
+ 
+ .animate a span:nth-child(4) {
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 2px;
+     transform: scaleX(0);
+     transform-origin: top;
+     transition: transform 0.5s;
+     transition-delay: 0.5s;
+ }
+ 
+ .animate a:hover span:nth-child(4){
+     transform: scaleX(1);
+     transform-origin: left;
+     transition: transform 0.5s;
+     transition-delay: 0.5s;
+ }
+ 
+
+
+.content .content-right img{
+    width: 580px;
+    height: auto;
+    padding-top: 20px;
+    position: relative;
+    user-select: none;
+    bottom: 100px;
+    right: 250px;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.catagory {
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+
+.catagory .list-items {
+    width: 90%;
+    position: relative;
+    margin-top: 50px;
+}
+
+.catagory .list-items h3{
+    font-size: 40px;
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-bottom: 70px;
+    color: #ff0066;
+    padding-bottom: 30px;
+}
+
+.catagory .list-items .card-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.catagory .card-list .card {
+    width: 200px;
+    height: auto;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    background: #ffffff;
+    outline: 2px solid #faad96;
+}
+
+.catagory .card-list .card img {
+    width: 100px;
+    height: auto;
+    bottom: 160px;
+    left: 50px;
+    object-fit: cover;
+    object-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    box-shadow: 0 20px 20px #faad96;
+    border-radius: 50%;
+}
+
+.catagory .card-list .card .food-title {
+    padding: 40px 0 10px;
+}
+
+.catagory .card-list .card .food-title h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.catagory .card .desc-food p{
+    font-size: 13px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+.catagory .card .price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.catagory .card .price span .plus-icon {
+    color: #ff0066;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background-color: #ff0066;
+}
+
+/* MENU */
+
+.menu{
+    width: 100%;
+    padding: 70px 0;
+}
+
+.menu h1{
+    font-size: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.menu h1 span{
+    color: #ff0066;
+    margin-left: 15px;
+    font-family: mv boli;
+    text-decoration-line: none;
+}
+
+.menu h1 span::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #fac031;
+    display: block;
+    position: relative;
+    bottom: 15px;
+}
+
+.menu .menu_box{
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+}
+
+.menu .menu_box .menu_card{
+    width: 325px;
+    height: 480px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.menu .menu_box .menu_card .menu_image{
+    width: 300px;
+    height: 245px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.menu .menu_box .menu_card .menu_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.3s;
+}
+
+.menu .menu_box .menu_card .menu_image:hover img{
+    transform: scale(1.1);
+}
+
+.menu .menu_box .menu_card .small_card{
+    width: 45px;
+    height: 45px;
+    float: right;
+    position: relative;
+    top: -240px;
+    right: -8px;
+    opacity: 0;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.menu .menu_box .menu_card:hover .small_card{
+    position: relative;
+    top: -240px;
+    right: 20px;
+    opacity: 1;
+}
+
+.menu .menu_box .menu_card .small_card i{
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 50px;
+    color: #000;
+    cursor: pointer;
+    text-shadow: 0 0 6px #000;
+    transition: 0.2s;
+}
+
+.menu .menu_box .menu_card .small_card i:hover{
+    color: #fac031;
+}
+
+.menu .menu_box .menu_card .menu_info h2{
+    width: 60%;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    font-size: 25px;
+    color: #fac031;
+}
+
+.menu .menu_box .menu_card .menu_info p{
+    text-align: center;
+    margin-top: 8px;
+    line-height: 21px;
+}
+
+.menu .menu_box .menu_card .menu_info h3{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.menu .menu_box .menu_card .menu_info .menu_icon{
+    color: #fac031;
+    text-align: center;
+    margin: 10px 0 10px 0;
+    position: relative;
+    bottom: 70px;
+}
+
+.menu .menu_box .menu_card .menu_info .menu_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    background: #000;
+    padding: 8px 10px;
+    margin: 0 80px;
+    transition: 0.3s;
+    position: relative;
+    bottom: 70px;
+}
+
+/*Swiper*/
+
+.gallary{
+    width: 100%;
+    padding: 70px 0;
+}
+
+.gallary h1{
+    font-size: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallary h1 span{
+    margin-left: 15px;
+    color: #fac031;
+    font-family: mv boli;
+}
+
+.gallary h1 span::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #fac031;
+    display: block;
+    position: relative;
+    bottom: 15px;
+}
+
+.gallary .gallary_image_box{
+    width: 95%;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.gallary .gallary_image_box .gallary_image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+
+.gallary .gallary_image_box .gallary_image img{
+    width: 100%;
+    transition: .3s;
+}
+
+.gallary .gallary_image_box .gallary_image:hover img{
+    opacity: 0.4;
+}
+
+.gallary .gallary_image_box .gallary_image h3{
+    position: absolute;
+    font-size: 35px;
+    margin-bottom: 130px;
+    color: #fac031;
+    font-family: polo;
+    z-index: 5;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.gallary .gallary_image_box .gallary_image:hover h3{
+    opacity: 1;
+}
+
+.gallary .gallary_image_box .gallary_image p{
+    position: absolute;
+    width: 400px;
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    line-height: 22px;
+    opacity: 0;
+    z-index: 5;
+    transition: 0.3s;
+}
+
+.gallary .gallary_image_box .gallary_image:hover p{
+    opacity: 1;
+}
+
+.gallary .gallary_image_box .gallary_image .gallary_btn{
+    position: absolute;
+    margin-top: 180px;
+    color: #000;
+    background: #fac031;
+    padding: 7px 25px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(45px);
+    z-index: 5;
+    transition: 0.3s;
+}
+
+.gallary .gallary_image_box .gallary_image:hover .gallary_btn{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-swiper {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+#gallery {
+    padding-top: 120px;
+}
+
+.book-table-img {
+    height: 70vh;
+    min-height: 500px;
+    border-radius: 30px;
+}
+
+.back-img {
+    background-position: center;
+    background-size: cover;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    display: none;
+}
+
+.swiper-button-wp {
+    position: relative;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    position: unset;
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    font-size: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0;
+    color: #0d0d25;
+    background: #ffffff;
+    padding-top: 1px;
+    padding-right: 2px;
+    transition: 0.3s;
+}
+
+.swiper-button-next {
+    padding-left: 3px;
+}
+
+.swiper-button-prev:hover {
+    color: #fcbc30;
+}
+
+.swiper-button-next:hover {
+    color: #fcbc30;
+}
+
+.swiper-pagination {
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 60px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    max-width: fit-content;
+    left: 50% !important;
+    transform: translate(-50%, 0);
+    bottom: 0 !important;
+    color: #000;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0px 10px !important;
+    border-radius: 10px;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+.swiper-pagination-bullet-active {
+    background: #fcbc30;
+    width: 30px;
+}
+
