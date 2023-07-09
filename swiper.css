@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 .section-swiper {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -26,7 +19,8 @@
     background-size: cover;
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
+.swiper-button-next::after,
+.swiper-button-prev::after {
     display: none;
 }
 
@@ -39,7 +33,8 @@
     align-items: center;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
     position: unset;
     width: 60px;
     height: 60px;

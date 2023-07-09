@@ -28,6 +28,32 @@ $(document).ready(function ($) {
             clickable: true,
         },
     });
+});
+
+$(document).ready(function () {
+    $('.menu-toggle').on('click', function () {
+        $('.nav').toggleClass('showing');
+        $('.nav ul').toggleClass('showing');
+    });
+
+    $('.post-wrapper').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    infinite: true,
+                    dots: true
+                }
+            }
+        ]
+    });
+
+
 
 
 });
+
+
+
